@@ -39,3 +39,4 @@ Thumbs.db
 # no looking #
 ######################
 key.py
+__pycache__/

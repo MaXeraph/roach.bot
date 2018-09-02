@@ -14,7 +14,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     await client.change_presence(game=Game(name="with your data"))
-    print('Logged in as')a
+    print('Logged in as')
     print(client.user.name)
     print(client.user.id)
     print('------')
@@ -58,9 +58,18 @@ async def add(left : int, right : int):
     await client.say(left + right)
 
 @client.command()
-async def define(title : str):
+async def define(obj : str):
     """Returns summary of subject."""
-    data = content
+    # await client.send_typing()
+    get = requests.get('https://en.wikipedia.org/api/rest_v1/page/summary/{}'.format(obj.replace(' ', '_')))
+    json_file = get.json()
+    if json_file['type'] != 'disambiguation':
+        if json_file['title'] == "Not found.":
+            embed = discord.Embed(title="Wiki to prove a point", description="Error 404: Subject not found", color=0x118ab2)
+        else:
+            embed = discord.Embed(title="Wiki to prove a point", description=json_file['extract'], color=0x118ab2)
+            embed.add_field(name="Wikipedia Link", value="[{}]({})".format(obj.title(), json_file["content_urls"]["desktop"]["page"]))
+        await client.say(embed=embed)
 
 @client.command()
 async def badroach():
