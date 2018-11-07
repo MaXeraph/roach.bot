@@ -1,2 +1,2 @@
 # roach.bot
-Super AI designed to destroy all memes
+Super AI designed to make my discord life better
