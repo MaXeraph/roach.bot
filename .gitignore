@@ -40,3 +40,5 @@ Thumbs.db
 ######################
 key.py
 __pycache__/
+env/
+.env
