@@ -13,7 +13,9 @@
         "codespaces": {
             "repositories": {
                 "uken/uken_awscli": {
-                    "permissions": "write-all"
+                    "permissions": {
+                        "contents": "read"
+                    }
                 }
             }
         }
