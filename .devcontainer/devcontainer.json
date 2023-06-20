@@ -12,7 +12,7 @@
     "customizations": {
         "codespaces": {
             "repositories": {
-                "uken/uken_awscli": {
+                "uoftweb/projects-team-4": {
                     "permissions": {
                         "contents": "read"
                     }
